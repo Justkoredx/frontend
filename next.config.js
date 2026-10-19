@@ -13,8 +13,22 @@ const withPWA = require('next-pwa')({
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  compress: true,
+  images: {
+    formats: ['image/webp', 'image/avif'],
+    minimumCacheTTL: 31536000,
+  },
   async headers() {
     return [
+      {
+        source: '/api/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=300, s-maxage=600',
+          },
+        ],
+      },
       {
         source: '/_next/static/:path*',
         headers: [
@@ -26,6 +40,15 @@ const nextConfig = {
       },
       {
         source: '/:path*\\.(svg|png|jpg|jpeg|gif|webp|ico|woff|woff2)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/:path*\\.(js|css|json)',
         headers: [
           {
             key: 'Cache-Control',

@@ -27,6 +27,8 @@ The frontend is the **dumb UI layer** that:
 - **SDK:** Dorisio-sdk (from workspace)
 - **Deployment:** Vercel
 
+For store organization, selectors, persistence, async actions, debugging, and migration guidance, see the [Zustand state management guide](docs/ZUSTAND_GUIDE.md).
+
 ## Features
 
 - ✅ User authentication (sign up / log in)
@@ -276,6 +278,7 @@ const tip = await sdk.createTip(payload);
 
 ## Documentation
 
+- [Mobile-first and responsive layout guide](./docs/MOBILE_FIRST_RESPONSIVE_GUIDE.md) — Breakpoints, touch interactions, working grid examples, mobile performance, and device testing.
 - 📘 [SDK Usage Patterns & Best Practices Guide](./docs/SDK_USAGE_PATTERNS.md) — Comprehensive guide on SDK initialization, configuration tuning, authentication lifecycles, error handling, pagination, and performance optimization.
 - 📡 [API Integration Guide](./docs/API_INTEGRATION_GUIDE.md) — Backend API integration reference, frontend-owned route definitions, and browser exports.
 - 🚀 [Deployment Guide](./DEPLOYMENT.md) — Production setup, environment configuration, and Vercel hosting.
